@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <main>
+
+    <head>
+      <title>Hackathon Registration Form</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="./illinois-styles.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
+    </head>
+    <div class="orange-bg"></div>
+    <body>
+      <h1 id="title">IlliniThon 2024 Registration Form</h1>
+      <h4> 29th March - 31st March</h4>
+      <p id="description">Please fill this form to register for IlliniThon '24. Food will be provided!</p>
+
+      <form id="survey-form" method="post" action="https://register-demo.freecodecamp.org">
+        <div class="boxed-form">
+
+          <fieldset class="personal">
+            <label id="name-label">Full Name: <input id="name" type="text" required placeholder="Enter your name"></label>
+            <label id="email-label">Illinois email: <input type="email" required id="email" placeholder="Enter your email"></label>
+            <label id="number-label">Phone number: (US ONLY) <input type="number" id="number" min="1000000000" max="9999999999" placeholder="Enter your number"></label>
+          </fieldset>
+
+
+          <fieldset class="hack-details">
+            <label> Any dietary restrictions we should know about?
+            <select id="dropdown">
+              <option disabled selected>Select one</option>
+              <option>Vegan</option>
+              <option>Vegetarian</option>
+              <option>Kosher</option>
+              <option>Other</option>
+            </select> </label>
+
+            <label> Choose a T-Shirt Size:
+              <br>
+            <input type="radio" class="choice" value="XS" name="shirt" checked><label class="choice"> Extra Small (XS) </label>
+            <br>
+            <input type="radio" value="S" name="shirt" class="choice"><label class="choice"> Small (S) </label>
+            <br>
+            <input type="radio" value="M" name="shirt" class="choice"><label class="choice"> Medium (M) </label>
+            <br>
+            <input type="radio" value="L" name="shirt" class="choice"><label class="choice"> Large (L) </label>
+            <br>
+            <input type="radio" value="XL" name="shirt" class="choice"><label class="choice"> Extra Large (XL) </label> </label>
+
+
+            <label>
+              Select all that apply:
+              <br>
+              <input value="member-status" type="checkbox" class="choice"><label class="choice"> Illinois Student </label>
+              <br>
+              <input value="member-status" type="checkbox" class="choice"><label class="choice"> ACM Member</label>
+              <br>
+              <input value="member-status" type="checkbox" class="choice"><label class="choice"> CS / CS + X Major</label></label>
+            
+          </fieldset>
+
+
+          <fieldset>
+            <label>Anything you want us to note? <textarea placeholder="Enter your comment here.."></textarea></label>
+          </fieldset>
+              
+          <input required value="paid" class="paid choice" type="checkbox"><label class="choice tac"> I certify that I have paid the $10 fee to ACM Illini through <a href="https://www.freecodecamp.org/news/terms-of-service/">this link</a> </label>
+          
+          <input type="submit" value="Submit" id="submit">
+        </div>
+      </form>
+    </body>
+  <main>
+</html>

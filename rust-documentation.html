@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- head element-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Abridged Rust Programming Language Documentation" />
+    <title>Quick Reference - Rust Documentation</title>
+    <link rel="stylesheet" href="./rust-documentation-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    
+  </head>
+
+
+  <body>
+  <!-- main element-->
+  <main id="main-doc">
+
+      <!-- nav elements-->
+      <div>
+      <nav class="contents" id="navbar">
+        <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png"/>
+          <header>Rust Documentation</header>
+        </div>
+        <ul>
+          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
+          <li><a class="nav-link" href="#Basic_Concepts">Basic Concepts</a></li>
+          <li><a class="nav-link" href="#Control_Flow">Control Flow</a></li>
+          <li><a class="nav-link" href="#Ownership">Ownership</a></li>
+          <li><a class="nav-link" href="#Structs">Structs</a></li>
+          <li><a class="nav-link" href="#Enums_and_Pattern_Matching">Enums and Pattern Matching</a></li>
+          <li><a class="nav-link" href="#Error_Handling">Error Handling</a></li>
+          <li><a class="nav-link" href="#Conclusion">Conclusion</a></li>
+        </ul>
+      </nav>
+      </div>
+
+      <!-- section elements-->
+      <div class="sec">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>Rust is a systems programming language that emphasizes safety, performance, and concurrency. Created by Graydon Hoare at Mozilla Research, Rust aims to overcome common pitfalls in system-level programming by enforcing strict memory safety rules. It is syntactically similar to C++, yet it introduces modern features that facilitate the development of reliable and efficient software.</p>
+      </section>
+
+
+      <section class="main-section" id="Getting_Started">
+        <header>Getting Started</header>
+        <p>To begin using Rust, you need to install the Rust toolchain, which includes the Rust compiler (rustc), Cargo (Rust's package manager and build system), and other associated tools. The recommended way to install Rust is through rustup, a command-line utility for managing Rust versions.</p>
+        <h3>Installation</h3>
+        <p>To install Rust using rustup, execute the following command in your terminal:</p>
+<pre><code>  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+        <p>After the installation, verify it by checking the Rust version:</p>
+<pre><code>  rustc --version</code></pre>
+      </section>
+
+
+      <section class="main-section" id="Basic_Concepts">
+        <header>Basic Concepts</header>
+        <p>Rust introduces several core concepts that are crucial to understanding its design philosophy. These include ownership, borrowing, and lifetimes, which are central to Rust's memory safety guarantees.</p>
+        <h3>Variables and Mutability</h3>
+        <p>Variables in Rust are immutable by default. To declare a mutable variable, use the mut keyword.</p>
+<pre><code>  let mut x = 5;</code></pre>
+        <h3>Data Types</h3>
+<p>Rust is statically typed, ensuring that the type of each variable is known at compile time. Common data types include:</p>
+        <ul>
+          <li>Integers (i32, u32, etc.)</li>
+          <li>Floating-point numbers (f32, f64)</li>
+          <li>Booleans (bool)</li>
+          <li>Characters (char)</li>
+        </ul>
+      </section>
+
+
+      <section class="main-section" id="Control_Flow">
+        <header>Control Flow</header>
+        <p>Control flow in Rust is managed through conditionals, loops, and pattern matching. These constructs enable the creation of complex and dynamic program behavior.</p>
+        <h3>Conditionals</h3>
+        <p>If statements are used for conditional execution. Else if and else provide additional branches.</p>
+<pre><code>  if number % 4 == 0 {
+      println!("number is divisible by 4");
+  } else if number % 3 == 0 {
+      println!("number is divisible by 3");
+  } else {
+      println!("number is not divisible by 4 or 3");
+  } </code>
+</pre>
+        <h3>Loops</h3>
+        <p>Rust supports several types of loops:</p>
+        <ul>
+          <li>Infinite loops using loop</li>
+          <li>Conditional loops using while</li>
+          <li>Iterative loops using for</li>
+        </ul>
+<pre><code>  for element in a.iter() {
+    println!("the value is: {}", element);
+  }</code>
+</pre>
+      </section>
+
+
+      <section class="main-section" id="Ownership">
+        <header>Ownership</header>
+        <p>Ownership is a unique feature of Rust, ensuring memory safety without a garbage collector. The rules of ownership are:</p>
+        <ul>
+          <li>Each value has a single owner.</li>
+          <li>Ownership can be transferred.</li>
+          <li>When the owner goes out of scope, the value is dropped.</li>
+        </ul>
+        <li><h3>Borrowing</h3></li>
+        <li><p>Borrowing allows multiple parts of a program to access a value without transferring ownership. Borrowing is achieved using references.</p></li>
+<pre><code>  let s1 = String::from("hello");
+  let len = calculate_length(&s1);
+</code></pre>
+      </section>
+
+
+      <section class="main-section" id="Structs">
+        <header>Structs</header>
+        <p>Structs are custom data types that group related values. They are used to create more complex data structures. A struct can be defined with named fields and instantiated by specifying values for each field.</p>
+<pre><code>  struct User {
+      username: String,
+      email: String,
+      sign_in_count: u64,
+      active: bool,
+  }
+
+  let user1 = User {
+      email: String::from("someone@example.com"),
+      username: String::from("someusername123"),
+      active: true,
+      sign_in_count: 1,
+  };</code>
+</pre>
+      </section>
+
+
+      <section class="main-section" id="Enums_and_Pattern_Matching">
+        <header>Enums and Pattern Matching</header>
+        <p>Enums allow the creation of types that can be one of several variants. Pattern matching is used to handle these variants effectively. An enum can be defined with multiple variants. Match statements are used to handle each variant.
+        </p>
+<pre><code>  enum Message {
+      Quit,
+      Move { x: i32, y: i32 },
+      Write(String),
+      ChangeColor(i32, i32, i32),
+  }
+
+  match msg {
+      Message::Quit => println!("Quit"),
+      Message::Move { x, y } => println!("Move to ({}, {})", x, y),
+      Message::Write(text) => println!("Text: {}", text),
+      Message::ChangeColor(r, g, b) => println!("Color: ({}, {}, {})", r, g, b),
+  }
+</code></pre>
+      </section>
+
+
+      <section class="main-section" id="Error_Handling">
+        <header>Error Handling</header>
+        <p>Rust handles errors using the Result and Option enums, providing robust mechanisms for dealing with recoverable and unrecoverable errors.</p>
+        <h3>Recoverable Errors with Result</h3>
+        <p>Result&lt;T, E&gt; is used for operations that can fail. It has two variants: Ok for success and Err for error.</p>
+<pre><code>  let f = File::open("hello.txt");
+
+  match f {
+      Ok(file) => file,
+      Err(error) => panic!("Problem opening the file: {:?}", error),
+  }
+</code></pre>
+        <h3>Unrecoverable Errors with Result</h3>
+        <p>The macro panic! is used for unrecoverable errors.
+Causes the program to terminate and display an error message.</p>
+<pre><code>  panic!("crash and burn");
+</code></pre>
+      </section>
+
+
+      <section class="main-section" id="Conclusion">
+        <header>Conclusion</header>
+        <p>Rust offers a unique combination of performance, safety, and concurrency. Understanding its core concepts like ownership, borrowing, and lifetimes is essential for writing efficient and reliable Rust code. With its growing ecosystem and active community, Rust is becoming an increasingly popular choice for systems programming and beyond.</p>
+      </section>
+
+    <footer>
+          <a href="https://social.rust-lang.org/@rust">
+            <i class="fab fa-mastodon"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://discord.com/invite/rust-lang">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://github.com/rust-lang">
+            <i class="fab fa-github"></i>
+          </a>
+      <a href="https://www.rust-lang.org/learn"><i class="fas fa-globe"></i></a>
+    </footer>
+    </div>
+  </main>
+  </body>
+  
+</html>
